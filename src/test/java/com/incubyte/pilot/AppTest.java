@@ -24,4 +24,9 @@ public class AppTest{
     public void shouldReturnSumOnTwoNumbers(){
         assertEquals(3, calculator.add("1, 2"));
     }
+
+    @Test
+    public void shouldReturnSumOnUnknownAmountOfNumbers(){
+        assertEquals(6, calculator.add("1, 2, 3"));
+    }
 }
