@@ -49,4 +49,9 @@ public class AppTest{
     public void shouldIgnoreNumbersGreaterThan1000(){
         assertEquals(1, calculator.add("1002,1"));
     }
+
+    @Test
+    public void shouldUseDelimiterOfAnyLength(){
+        assertEquals(24, calculator.add("//[123]\\n712381239"));
+    }
 }

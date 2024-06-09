@@ -1,5 +1,7 @@
 package com.incubyte.pilot;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
     private int sum(String[] numbers){
@@ -18,6 +20,17 @@ public class StringCalculator {
         return sum;
     }
 
+    private String[] getNumbers(String input){
+        String delimiter = input.substring(input.indexOf("//") + 2, input.indexOf("\\n"));
+        if(delimiter.startsWith("[") && delimiter.endsWith("]")){
+            delimiter = delimiter.substring(delimiter.indexOf("[") + 1, delimiter.indexOf("]"));
+            delimiter = Pattern.quote(delimiter);
+        }
+        String numbers = input.substring(input.indexOf("\\n") + 2);
+        return numbers.split(delimiter);
+    }
+
+
     public int add(String input){
         if(input.isEmpty()){
             return 0;
@@ -26,11 +39,7 @@ public class StringCalculator {
             return input.equals(" ") ? 0 : Integer.parseInt(input);
         }
         else if(input.startsWith("//")){
-            int index = input.indexOf("//");
-            int nextLineIndex = input.indexOf("\\n") + 2;
-            String delimiter = input.substring(index + 2, nextLineIndex - 2);
-            String numbers = input.substring(nextLineIndex);
-            String[] array = numbers.split(delimiter);
+            String[] array = getNumbers(input);
             return sum(array);
         }
         else{
