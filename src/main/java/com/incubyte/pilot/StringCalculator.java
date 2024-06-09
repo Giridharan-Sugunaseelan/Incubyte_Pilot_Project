@@ -11,7 +11,7 @@ public class StringCalculator {
         }
         else{
             int sum = 0;
-            String[] array = input.split(",");
+            String[] array = input.split(",|\\n");
             for(String letter : array){
                 String current = letter.trim();
                 sum += (current.isEmpty()) ? 0 : Integer.parseInt(current);
