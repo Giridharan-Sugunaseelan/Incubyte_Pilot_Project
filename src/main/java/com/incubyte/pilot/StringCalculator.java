@@ -38,10 +38,13 @@ public class StringCalculator {
                 }
                 temp.append(Pattern.quote(delimiter));
             }
-            return temp.toString();
+            // Adding nextLine as a delimiter to ensure that the string array is split on nextLine as well as the given delimiters
+            return temp.toString() + "|\\n";
         }
         else{
-            return Pattern.quote(delimiterSection);
+            delimiterSection = Pattern.quote(delimiterSection);
+            // Adding nextLine as a delimiter to ensure that the string array is split on nextLine as well as the given delimiters
+            return delimiterSection + "|\\n";
         }
     }
 
