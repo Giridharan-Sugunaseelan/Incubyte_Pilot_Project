@@ -45,4 +45,8 @@ public class AppTest{
         assertThrows(RuntimeException.class, () -> calculator.add("-1,2,-3"));
     }
 
+    @Test
+    public void shouldIgnoreNumbersGreaterThan1000(){
+        assertEquals(1, calculator.add("1002,1"));
+    }
 }

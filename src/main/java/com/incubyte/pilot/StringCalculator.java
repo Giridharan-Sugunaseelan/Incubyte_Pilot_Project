@@ -10,6 +10,9 @@ public class StringCalculator {
             if(num < 0){
                 throw new RuntimeException("Negative numbers not allowed " + num);
             }
+            if(num > 1000){
+                continue;
+            }
             sum += current.isEmpty() ? 0 : num;
         }
         return sum;
