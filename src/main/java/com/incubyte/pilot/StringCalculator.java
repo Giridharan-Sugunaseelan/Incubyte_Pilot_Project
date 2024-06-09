@@ -22,12 +22,27 @@ public class StringCalculator {
 
     private String[] getNumbers(String input){
         String delimiter = input.substring(input.indexOf("//") + 2, input.indexOf("\\n"));
-        if(delimiter.startsWith("[") && delimiter.endsWith("]")){
-            delimiter = delimiter.substring(delimiter.indexOf("[") + 1, delimiter.indexOf("]"));
-            delimiter = Pattern.quote(delimiter);
-        }
+        delimiter = extractDelimiter(delimiter);
         String numbers = input.substring(input.indexOf("\\n") + 2);
         return numbers.split(delimiter);
+    }
+
+    public static String extractDelimiter(String delimiterSection){
+        if(delimiterSection.startsWith("[") && delimiterSection.endsWith("]")){
+            delimiterSection = delimiterSection.substring(1, delimiterSection.length() - 1);
+            String[] delimiters = delimiterSection.split("\\]\\[");
+            StringBuilder temp = new StringBuilder();
+            for(String delimiter : delimiters){
+                if(temp.length() > 0){
+                    temp.append("|");
+                }
+                temp.append(Pattern.quote(delimiter));
+            }
+            return temp.toString();
+        }
+        else{
+            return Pattern.quote(delimiterSection);
+        }
     }
 
 

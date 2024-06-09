@@ -54,4 +54,9 @@ public class AppTest{
     public void shouldUseDelimiterOfAnyLength(){
         assertEquals(24, calculator.add("//[123]\\n712381239"));
     }
+
+    @Test
+    public void shouldUseMultipleDelimitersOfAnyLength(){
+        assertEquals(6, calculator.add("//[*][%]\\n1*2%3"));
+    }
 }
