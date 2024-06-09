@@ -27,7 +27,7 @@ public class StringCalculator {
         return numbers.split(delimiter);
     }
 
-    public static String extractDelimiter(String delimiterSection){
+    private String extractDelimiter(String delimiterSection){
         if(delimiterSection.startsWith("[") && delimiterSection.endsWith("]")){
             delimiterSection = delimiterSection.substring(1, delimiterSection.length() - 1);
             String[] delimiters = delimiterSection.split("\\]\\[");
