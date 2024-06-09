@@ -6,7 +6,11 @@ public class StringCalculator {
         int sum = 0;
         for(String number : numbers){
             String current = number.trim();
-            sum += current.isEmpty() ? 0 : Integer.parseInt(current);
+            int num = current.isEmpty() ? 0 : Integer.parseInt(current);
+            if(num < 0){
+                throw new RuntimeException("Negative numbers not allowed " + num);
+            }
+            sum += current.isEmpty() ? 0 : num;
         }
         return sum;
     }

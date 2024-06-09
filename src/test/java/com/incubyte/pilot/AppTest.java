@@ -1,7 +1,7 @@
 package com.incubyte.pilot;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit test for simple App.
@@ -39,4 +39,10 @@ public class AppTest{
     public void shouldSplitBasedOnGivenDelimiter(){
         assertEquals(3, calculator.add("//;\\n1;2"));
     }
+
+    @Test
+    public void shouldThrowExceptionForNegativeNumbers(){
+        assertThrows(RuntimeException.class, () -> calculator.add("-1,2,-3"));
+    }
+
 }
