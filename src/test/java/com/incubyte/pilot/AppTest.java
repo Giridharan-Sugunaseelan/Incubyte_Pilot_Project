@@ -19,4 +19,9 @@ public class AppTest{
     public void shouldReturnNumberOnSingleNumber(){
         assertEquals(1, calculator.add("1"));
     }
+
+    @Test
+    public void shouldReturnSumOnTwoNumbers(){
+        assertEquals(3, calculator.add("1, 2"));
+    }
 }

@@ -9,6 +9,14 @@ public class StringCalculator {
         else if(input.length() == 1){
             return input.equals(" ") ? 0 : Integer.parseInt(input);
         }
-        return -1;
+        else{
+            int sum = 0;
+            String[] array = input.split(",");
+            for(String letter : array){
+                String current = letter.trim();
+                sum += (current.isEmpty()) ? 0 : Integer.parseInt(current);
+            }
+            return sum;
+        }
     }
 }
