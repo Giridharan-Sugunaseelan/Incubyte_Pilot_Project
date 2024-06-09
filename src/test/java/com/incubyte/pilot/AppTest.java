@@ -14,4 +14,9 @@ public class AppTest{
     public void shouldReturnZeroOnEmptyString(){
         assertEquals(0, calculator.add(""));
     }
+
+    @Test
+    public void shouldReturnNumberOnSingleNumber(){
+        assertEquals(1, calculator.add("1"));
+    }
 }
